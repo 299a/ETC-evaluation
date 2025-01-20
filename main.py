@@ -1,23 +1,14 @@
 import pandas as pd
 
 
-import random
 
-
-random_number = random.randint(0, 1000)
-# print(random_number)
-
-
-# 请将文件路径替换为您的实际Excel文件路径
 file_path = '/Users/cuixiaoyu/Desktop/斜率计算.xlsx'
 pd.set_option('display.max_columns', None)
 
 
-# 加载数据，确保使用正确的工作表名称和索引列
 data = pd.read_excel(file_path, sheet_name='Sheet1', index_col=0)
 print(data)
 
-# 将数据转换为数值类型，确保计算不会因类型问题出错
 data = data.apply(pd.to_numeric, errors='coerce')
 
 # 计算各阶段的斜率
@@ -43,7 +34,7 @@ normalized_cg_a = cumulative_absolute_slope_sum / max_cg_a
 # 计算Balance-Score
 norm_balance_score = 1 / (1 + normalized_cg_a)
 
-# 输出结果
+
 print("累积绝对值斜率和:")
 print(cumulative_absolute_slope_sum)
 
@@ -56,7 +47,6 @@ print(cumulative_slope_sum)
 print("\n各阶段斜率:")
 print(slopes)
 
-# 创建DataFrame显示最终结果
 final_results = pd.DataFrame({
     'Avg_Accuracy': accuracy_data,
     'Balance-Score': balance_score,
