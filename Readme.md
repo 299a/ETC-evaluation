@@ -11,7 +11,10 @@ root/
 │   │   └── ...
 │   └── ...
 
+The EnDatSet extracted in Section 5:
 1. The raw pcap dataset need to preprocessed to the 'flow' by five tuple
+Saving the extracted flow pcap file in 'root' path, the dataset directory should be same as above.
+   
 2. Run 1_file_tls_filter.py
 This file extracting and saving only tls.application_record packets and associated tcp segments, but including TLS record layer header
 3. Run 2_file_tls_plaintext_filter.py
